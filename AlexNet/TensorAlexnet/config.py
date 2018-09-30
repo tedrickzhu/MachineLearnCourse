@@ -1,9 +1,10 @@
 # coding=utf-8
 
-import ConfigParser
+import configparser as confpr
 
 def get_conf():
-    cf = ConfigParser.ConfigParser()
+    cf = confpr.ConfigParser()
     cf.read("config.ini")
     return cf
 
+print('test')

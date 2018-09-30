@@ -1,6 +1,6 @@
 # coding=utf-8
 
-import cPickle
+import pickle
 import numpy as np
 import tensorflow as tf
 
@@ -27,8 +27,9 @@ TEST_LABELS = []
 
 
 def unpickle(data_dir):
+    print('this is data_dir:',data_dir)
     with open(data_dir, 'rb') as fo:
-        dict = cPickle.load(fo)
+        dict = pickle.load(fo,encoding='iso-8859-1')
     return dict
 
 
@@ -166,6 +167,7 @@ def get_data_from_file():
 
 def _get_train_and_validation_data():
     datas = unpickle(DATA_DIR + 'data_batch_1')
+    print('this is datas type:',datas.keys())
     t_v_datas = datas['data']
     t_v_labels = datas['labels']
 
